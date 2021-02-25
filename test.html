@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Repos</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    
+    
+    <div class="mainContent" id="mainContent">
+        
+    </div>
+    <script>
+        let url = "https://api.github.com/search/repositories?q=created:%3E2020-01-26&sort=stars&order=desc&per_page=100";
+        let tempArr;
+        fetch(url)
+        .then(res => res.json())
+        .then((data)=>{
+            tempArr = data.items;
+            var i, x = "";
+        for (i in tempArr) {
+            x += `<div class="card">
+                <div class="avatar">
+                    <img src="${tempArr[i].owner.avatar_url}" alt=""    height="80%" width="90%">
+                </div>
+                <div class="content">
+                    <h2 class="Repository_Name">${tempArr[i].name}</h2>
+                    <p class="Description">${tempArr[i].description}</p>
+                    <h4 class="stars">${tempArr[i].stargazers_count}</h4>
+                    <h4 class="Issues">${tempArr[i].open_issues}</h4>
+                    <p class="interval">3years ago by ME</p>
+                </div>
+            </div>`;
+        }
+        document.getElementById("mainContent").innerHTML = x;
+        })
+        .catch(error => console.log("ERROR"))
+    </script>
+</body>
+</html>
