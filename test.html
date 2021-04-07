@@ -8,39 +8,26 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+    <div class="topFilter">
+        <div class="title">
+            <h1>trending repos</h1>
+        </div>
+        <div class="dynamicDate">
+            <h1 id="dynamicDate">lyoum</h1></div>
+    </div>
     
     <div class="mainContent" id="mainContent">
-        
+    
     </div>   
-    <script async src="./js/test.js"></script>
-     <script defer src="./js/ux.js"></script>
 
-    <!-- <script>
-        let url = "https://api.github.com/search/repositories?q=created:%3E2020-01-26&sort=stars&order=desc&per_page=100";
-        let tempArr;
-        fetch(url)
-        .then(res => res.json())
-        .then((data)=>{
-            tempArr = data.items;
-            var i, x = "";
-        for (i in tempArr) {
-            x += `<div class="card">
-                <div class="avatar">
-                    <img src="${tempArr[i].owner.avatar_url}" alt=""    height="80%" width="90%">
-                </div>
-                <div class="content">
-                    <h2 class="Repository_Name">${tempArr[i].name}</h2>
-                    <p class="Description">${tempArr[i].description}</p>
-                    <h4 class="stars">${tempArr[i].stargazers_count}</h4>
-                    <h4 class="Issues">${tempArr[i].open_issues}</h4>
-                    <p class="interval">3years ago by ME</p>
-                </div>
-            </div>`;
-        }
-        document.getElementById("mainContent").innerHTML = x;
-        })
-        .catch(error => console.log("ERROR"))
-    </script> -->
+    <div class="loader">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+    </div>
+    
+    <script async src="./js/main.js"></script>
+    
+    
 </body>
 </html>
